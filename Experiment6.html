@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic JavaScript Interaction</title>
+    <link rel="stylesheet" href="Experiment6.css">
+</head>
+<body>
+
+    <div class="main-container" id="cardContainer">
+        <h1 id="mainHeading">JavaScript is a scripting language used to make web pages interactive and dynamic.</h1>
+        
+        <input type="text" id="headingInput" placeholder="Type to change heading...">
+
+        <div class="button-grid">
+            <button onclick="changeHeading()">Change Heading</button>
+            <button onclick="changeBackground()">Change Background</button>
+            <button onclick="increaseFont()">Increase Font Size</button>
+            <button onclick="toggleParagraph()">Show/Hide Paragraph</button>
+            <button onclick="resetAll()" class="btn-reset">Reset</button>
+        </div>
+
+        <p id="samplePara">This is a sample paragraph. JavaScript events can dynamically change content.</p>
+    </div>
+
+    <script>
+        const container = document.getElementById('cardContainer');
+const heading = document.getElementById('mainHeading');
+const paragraph = document.getElementById('samplePara');
+const input = document.getElementById('headingInput');
+
+
+function changeHeading() {
+    if (input.value.trim() !== "") {
+        heading.innerHTML = input.value;
+    }
+}
+
+
+function changeBackground() {
+    container.style.borderColor = "#40E0D0"; 
+}
+
+function increaseFont() {
+    heading.style.fontSize = "2rem";
+}
+
+function toggleParagraph() {
+    if (paragraph.style.display === "none") {
+        paragraph.style.display = "block";
+    } else {
+        paragraph.style.display = "none";
+    }
+}
+
+function resetAll() {
+    container.style.borderColor = "#a37570";
+    heading.style.fontSize = "1.4rem";
+    heading.innerHTML = "JavaScript is a scripting language used to make web pages interactive and dynamic.";
+    paragraph.style.display = "block";
+    input.value = "";
+}
+    </script>
+      <div class="footer">
+    <p>Name : Sujal kumar sah
+    <br>Roll No. : 2503215400196
+    <br>Admn. no. : 2025b15410236 </p>
+    </div>
+</body>
+</html>

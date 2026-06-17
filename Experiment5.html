@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Management System</title>
+    <link rel="stylesheet" href="Experiment5.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Employee Salary Management System</h1>
+        
+        <div class="form-group">
+            <input type="text" id="empName" placeholder="Employee Name">
+            <input type="text" id="empId" placeholder="Employee ID">
+            <input type="number" id="empSalary" placeholder="Salary">
+            <input type="text" id="empDept" placeholder="Department">
+            <button onclick="addEmployee()" class="btn-add">Add Employee</button>
+        </div>
+
+        <div class="button-group">
+            <button onclick="displayAll()">Display All</button>
+            <button onclick="filterHighSalary()">Salary > 50000</button>
+            <button onclick="calculateTotal()">Total Salary</button>
+            <button onclick="calculateAverage()">Average Salary</button>
+            <button onclick="countByDept()">Count by Department</button>
+        </div>
+
+        <div id="output" class="output-section"></div>
+    </div>
+
+    <script>
+        
+let employees = [];
+
+function addEmployee() {
+    const name = document.getElementById('empName').value;
+    const id = document.getElementById('empId').value;
+    const salary = parseFloat(document.getElementById('empSalary').value);
+    const dept = document.getElementById('empDept').value;
+
+    if (name && id && salary && dept) {
+        
+        const newEmployee = { name, id, salary, dept };
+        employees.push(newEmployee);
+        
+        alert("Employee Added Successfully!");
+        
+    
+        document.querySelectorAll('input').forEach(input => input.value = '');
+    } else {
+        alert("Please fill all fields");
+    }
+}
+
+function displayAll() {
+    const output = document.getElementById('output');
+    output.innerHTML = "<h3>All Employees</h3>";
+    
+    employees.forEach(emp => {
+        output.innerHTML += `<div class="emp-item">Name: ${emp.name} | ID: ${emp.id} | Salary: ₹${emp.salary} | Dept: ${emp.dept}</div>`;
+    });
+}
+
+function filterHighSalary() {
+    const output = document.getElementById('output');
+    const highEarners = employees.filter(emp => emp.salary > 50000);
+    
+    output.innerHTML = "<h3>Employees with Salary > ₹50,000</h3>";
+    if (highEarners.length === 0) {
+        output.innerHTML += "<p>No records found.</p>";
+    } else {
+        highEarners.forEach(emp => {
+            output.innerHTML += `<div class="emp-item">${emp.name} - ₹${emp.salary}</div>`;
+        });
+    }
+}
+
+function calculateTotal() {
+    const output = document.getElementById('output');
+    const total = employees.reduce((sum, emp) => sum + emp.salary, 0);
+    output.innerHTML = `Total Salary Payout: ₹${total}`;
+}
+
+function calculateAverage() {
+    const output = document.getElementById('output');
+    if (employees.length === 0) return;
+    
+    const total = employees.reduce((sum, emp) => sum + emp.salary, 0);
+    const avg = total / employees.length;
+    output.innerHTML = `Average Salary: ₹${avg.toFixed(2)}`;
+}
+
+function countByDept() {
+    const output = document.getElementById('output');
+    const deptToFind = prompt("Enter Department Name:");
+    
+    if (deptToFind) {
+        const count = employees.filter(emp => emp.dept.toLowerCase() === deptToFind.toLowerCase()).length;
+        output.innerHTML = `Employees in ${deptToFind.toUpperCase()}: ${count}`;
+    }
+}
+    </script>
+      <div class="footer">
+    <p>Name : Sujal kumar sah
+    <br>Roll No. : 2503215400196
+    <br>Admn. no : 2025b15410236</p>
+    </div>
+</body>
+</html>
