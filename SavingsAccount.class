@@ -1,0 +1,10 @@
+class SavingsAccount extends BankAccount {
+   SavingsAccount(int var1, String var2, double var3) {
+      super(var1, var2, var3);
+   }
+
+   void calculateInterest() {
+      double var1 = this.balance * 0.05;
+      System.out.println("Savings Account Interest: " + var1);
+   }
+}

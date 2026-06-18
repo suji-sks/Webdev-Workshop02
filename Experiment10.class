@@ -1,0 +1,18 @@
+public class Exp10 {
+   public Exp10() {
+   }
+
+   public static void main(String[] var0) {
+      SavingsAccount var1 = new SavingsAccount(101, "Rahul", (double)10000.0F);
+      CurrentAccount var2 = new CurrentAccount(102, "Anita", (double)20000.0F);
+      System.out.println("----- Savings Account -----");
+      var1.deposit((double)2000.0F);
+      var1.displayDetails();
+      var1.calculateInterest();
+      System.out.println();
+      System.out.println("----- Current Account -----");
+      var2.deposit((double)3000.0F);
+      var2.displayDetails();
+      var2.calculateInterest();
+   }
+}

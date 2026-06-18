@@ -1,0 +1,24 @@
+abstract class BankAccount {
+   int accountNumber;
+   String accountHolderName;
+   double balance;
+
+   BankAccount(int var1, String var2, double var3) {
+      this.accountNumber = var1;
+      this.accountHolderName = var2;
+      this.balance = var3;
+   }
+
+   void deposit(double var1) {
+      this.balance += var1;
+      System.out.println("Amount Deposited: " + var1);
+   }
+
+   void displayDetails() {
+      System.out.println("Account Number: " + this.accountNumber);
+      System.out.println("Account Holder Name: " + this.accountHolderName);
+      System.out.println("Balance: " + this.balance);
+   }
+
+   abstract void calculateInterest();
+}

@@ -1,0 +1,10 @@
+class CurrentAccount extends BankAccount {
+   CurrentAccount(int var1, String var2, double var3) {
+      super(var1, var2, var3);
+   }
+
+   void calculateInterest() {
+      double var1 = this.balance * 0.02;
+      System.out.println("Current Account Interest: " + var1);
+   }
+}
